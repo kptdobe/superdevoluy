@@ -404,7 +404,7 @@ async function decoratePage(win = window) {
       await loadBlocks($main);
       decoratePhoneLinks();
       document.querySelector('html').lang = 'fr';
-      window.setTimeout(loadAnalytics, 2500);
+      window.setTimeout(loadAnalytics, 3000);
     });
     doc.querySelector('body').classList.add('appear');
   }
