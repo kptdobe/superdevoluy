@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
-main .section-wrapper .card.block {
+main .section .card.block {
   text-align: left;
   margin-bottom: 50px;
 }

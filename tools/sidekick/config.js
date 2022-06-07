@@ -16,5 +16,4 @@ window.hlx.initSidekick({
   project: 'www.appartementsuperdevoluy.fr',
   host: 'www.appartementsuperdevoluy.fr',
   byocdn: true,
-  hlx3: true
 });

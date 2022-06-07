@@ -17,11 +17,6 @@ body {
   overflow-y: scroll;
   width: 100%;
   line-height: 2em;
-  display: none;
-}
-
-body.appear {
-  display: block;
 }
 
 h1, h2, h3, h4, h5 {
@@ -32,65 +27,9 @@ a:any-link {
   color: var(--text-color);
 }
 
-main .hero-section {
-  color: white;
-  position: relative;
-  padding: 160px 20px;
-}
-
-main .hero-section h1 {
-  margin: 0;
-}
-
-main .hero-section p {
-  margin: 16px 0;
-}
-
-main .hero-section picture {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  box-sizing: border-box;
-  z-index: -1;
-}
-
-main .hero-section picture img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
-
-main .hero-section em {
-  position: absolute;
-  left: 10px;
-  bottom: -10px;
-  font-size: 1rem;
-}
-
-main .hero-section > div {
-    padding: 0;
-}
-
-@media (min-width:600px) {
-  main .hero-section {
-    padding: 200px 0;
-  }
-
-  main .hero-section > div {
-    max-width: 672px;
-    margin: auto;
-  }
-}
-
 @media (min-width:900px) {
   body {
     font-size: 1.5rem;
-  }
-
-  main .hero-section > div {
-    max-width: 950px;
   }
 }
 
@@ -103,47 +42,109 @@ img {
   max-width: 100%;
 }
 
-main .section-wrapper {
+main .section {
   padding-top: 20px;
 }
 
-main .section-wrapper:first-of-type {
+main .section > div:first-of-type {
   padding-top: 20px;
 }
 
-main .section-wrapper:first-of-type {
+main .section > div:first-of-type {
   padding: 0;
 }
 
-main .section-wrapper > div {
+main .section {
   margin: auto;
   max-width: 375px;
   padding: 0 32px;
 }
 
-main .section-wrapper > div:empty {
+main .section > div > div:empty {
   padding: 0;
 }
-main .section-wrapper p {
+main .section > div p {
     margin: 32px 0;
     text-align: left;
     overflow-x: hidden;
 }
 
-main .section-wrapper li, main .section-wrapper li p {
+main .section > div li, main .section > div li p {
   margin: 0;
   text-align: left;
   list-style-type: disc;
 }
 
 @media (min-width:900px) {
-  main .section-wrapper > div {
+  main .section {
     max-width: 830px;
   }
 }
 
 @media (min-width:1200px) {
-  main .section-wrapper > div {
+  main .section {
     max-width: 1024px;
+  }
+}
+
+/* hero */
+
+main .section.hero-container {
+  padding: 0;
+  color: white;
+  position: relative;
+  padding: 160px 20px;
+  max-width: unset;
+}
+
+main .hero h1 {
+  margin: 0;
+}
+
+main .hero p {
+  margin: 16px 0;
+}
+
+main .hero picture {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  z-index: -1;
+}
+
+main .hero picture img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+main .hero em {
+  position: absolute;
+  left: 10px;
+  bottom: -10px;
+  font-size: 1rem;
+}
+
+main .hero > div {
+    padding: 0;
+}
+
+@media (min-width:600px) {
+  main .hero-container {
+    padding: 200px 0;
+  }
+
+  main .hero > div {
+    max-width: 672px;
+    margin: auto;
+  }
+}
+
+@media (min-width:900px) {
+  main .hero > div {
+    max-width: 950px;
   }
 }
