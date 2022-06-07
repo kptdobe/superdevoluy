@@ -523,11 +523,9 @@ async function waitForLCP() {
 
   document.querySelector('body').classList.add('appear');
   const lcpCandidate = document.querySelector('main img');
-  if (lcpCandidate) {
-    lcpCandidate.setAttribute('loading', 'eager');
-  }
   await new Promise((resolve) => {
     if (lcpCandidate && !lcpCandidate.complete) {
+      lcpCandidate.setAttribute('loading', 'eager');
       lcpCandidate.addEventListener('load', () => resolve());
       lcpCandidate.addEventListener('error', () => resolve());
     } else {
