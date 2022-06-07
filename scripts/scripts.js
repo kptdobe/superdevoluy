@@ -661,7 +661,8 @@ async function loadLazy(doc) {
   // loadFooter(doc.querySelector('footer'));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
-  addFavIcon(`${window.hlx.codeBasePath}/styles/favicon.svg`);
+  // addFavIcon(`${window.hlx.codeBasePath}/styles/favicon.svg`);
+  decoratePhoneLinks();
 }
 
 /**
@@ -681,29 +682,6 @@ function decoratePhoneLinks() {
     });
   });
 }
-
-// /**
-//  * Decorates the page.
-//  * @param {Window} win The window
-//  */
-// async function decoratePage(win = window) {
-//   const doc = win.document;
-//   const $main = doc.querySelector('main');
-//   if ($main) {
-//     decorateMain($main);
-//     setLCPTrigger(doc, async () => {
-//       loadCSS('/styles/lazy-styles.css');
-//       // post LCP actions go here
-//       await loadBlocks($main);
-//       decoratePhoneLinks();
-//       document.querySelector('html').lang = 'fr';
-//       window.setTimeout(loadAnalytics, 3000);
-//     });
-//     doc.querySelector('body').classList.add('appear');
-//   }
-// }
-
-// decoratePage(window);
 
 export function createTag(name, attrs) {
   const el = document.createElement(name);
