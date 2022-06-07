@@ -70,28 +70,28 @@ form .fieldGroup {
   align-items: center;
 }
 
-main .section-wrapper table {
+main .section > div table {
   width: 100%;
   border-collapse: collapse;
 }
 
-main .section-wrapper tr {
+main .section > div tr {
   border-bottom: 1px solid lightgrey;
 }
 
-main .section-wrapper table td p {
+main .section > div table td p {
   margin: 0;
 }
 
-main .section-wrapper table tr th:nth-child(1) {
+main .section > div table tr th:nth-child(1) {
   width: 100px;
 }
 
-main .section-wrapper table tr th:nth-child(2) {
+main .section > div table tr th:nth-child(2) {
   width: 300px;
 }
 
-main .section-wrapper form {
+main .section > div form {
   border: 1px solid lightgray;
   padding: 10px;
 }
