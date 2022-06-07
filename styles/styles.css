@@ -86,3 +86,65 @@ main .section > div li, main .section > div li p {
     max-width: 1024px;
   }
 }
+
+/* hero */
+
+main .section.hero-container {
+  padding: 0;
+  color: white;
+  position: relative;
+  padding: 160px 20px;
+  max-width: unset;
+}
+
+main .hero h1 {
+  margin: 0;
+}
+
+main .hero p {
+  margin: 16px 0;
+}
+
+main .hero picture {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  z-index: -1;
+}
+
+main .hero picture img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+main .hero em {
+  position: absolute;
+  left: 10px;
+  bottom: -10px;
+  font-size: 1rem;
+}
+
+main .hero > div {
+    padding: 0;
+}
+
+@media (min-width:600px) {
+  main .hero-container {
+    padding: 200px 0;
+  }
+
+  main .hero > div {
+    max-width: 672px;
+    margin: auto;
+  }
+}
+
+@media (min-width:900px) {
+  main .hero > div {
+    max-width: 950px;
+  }
+}
