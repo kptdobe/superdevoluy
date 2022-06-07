@@ -110,7 +110,7 @@ const maximize = (event) => {
   }, 1);
   
   setTimeout(function(){
-    const newHeight = window.getComputedStyle($fsmContainer.firstChild).height;
+    const newHeight = window.getComputedStyle($fsmContainer.firstElementChild).height;
     let top = (window.innerHeight - newHeight.slice(0, -2)) / 2;
     top = top > 0 ? top : 0;
     $fsmContainer.style['padding-top'] = top + 'px';
