@@ -13,13 +13,14 @@
 /* eslint-disable import/named, import/extensions */
 
 import {
-  createTag,
   readBlockConfig,
-} from '../../scripts/scripts.js';
+} from '../../scripts/lib-franklin.js';
 
-export default function decorate($block, name, doc) {
+import { createTag } from '../../scripts/utils.js';
+
+export default function decorate($block) {
   const config = readBlockConfig($block);
-  const $headings = doc.querySelectorAll('main h2, main h3, main h4, main .table-of-contents');
+  const $headings = document.querySelectorAll('main h2, main h3, main h4, main .table-of-contents');
   let skip = true;
   const $toc = createTag('div', { class: 'toc' });
   $headings.forEach(($h) => {
