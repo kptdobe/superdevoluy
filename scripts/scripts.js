@@ -23,7 +23,6 @@ function buildHeroBlock(main) {
     const em = main.querySelector('em');
     const section = document.createElement('div');
     section.append(buildBlock('hero', { elems: [picture, h1, em.parentNode] }));
-    section.append(buildBlock('hero', { elems: [picture, h1] }));
     main.prepend(section);
     div.remove();
   }
