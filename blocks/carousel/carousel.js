@@ -201,8 +201,8 @@ function buildCarousel($block) {
   $block.appendChild($faderLeft);
   $block.appendChild($faderRight);
   // controls
-  const $arrowLeft = createTag('a', { class: 'button carousel-arrow carousel-arrow-left' });
-  const $arrowRight = createTag('a', { class: 'button carousel-arrow carousel-arrow-right' });
+  const $arrowLeft = createTag('button', { class: 'carousel-arrow carousel-arrow-left' });
+  const $arrowRight = createTag('button', { class: 'carousel-arrow carousel-arrow-right' });
   $arrowLeft.addEventListener('click', () => moveCarousel($block, 240));
   $arrowRight.addEventListener('click', () => moveCarousel($block, -240));
   $faderLeft.appendChild($arrowLeft);
