@@ -1,19 +1,21 @@
 import {
-  sampleRUM,
   buildBlock,
   decorateButtons,
   decorateIcons,
   decorateSections,
   decorateBlocks,
   decorateTemplateAndTheme,
-  waitForLCP,
-  loadBlocks,
+  waitForFirstImage,
+  loadSection,
+  loadSections,
   loadCSS,
-} from './lib-franklin.js';
+  sampleRUM,
+} from './aem.js';
 
-const LCP_BLOCKS = ['hero']; // add your LCP blocks to the list
-window.hlx.RUM_GENERATION = 'project-1'; // add your RUM generation information here
-
+/**
+ * Builds hero block and prepends to main in a new section.
+ * @param {Element} main The container element
+ */
 function buildHeroBlock(main) {
   const h1 = main.querySelector('h1');
   const picture = main.querySelector('picture');
@@ -56,7 +58,8 @@ export function decorateMain(main) {
 }
 
 /**
- * loads everything needed to get to LCP.
+ * Loads everything needed to get to LCP.
+ * @param {Element} doc The container element
  */
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
@@ -64,8 +67,11 @@ async function loadEager(doc) {
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);
-    await waitForLCP(LCP_BLOCKS);
+    document.body.classList.add('appear');
+    await loadSection(main.querySelector('.section'), waitForFirstImage);
   }
+
+  sampleRUM.enhance();
 }
 
 /**
@@ -86,44 +92,29 @@ export function addFavIcon(href) {
 }
 
 /**
- * loads everything that doesn't need to be delayed.
+ * Loads everything that doesn't need to be delayed.
+ * @param {Element} doc The container element
  */
 async function loadLazy(doc) {
   const main = doc.querySelector('main');
-  await loadBlocks(main);
+  await loadSections(main);
 
   const { hash } = window.location;
-  const element = hash ? main.querySelector(hash) : false;
+  const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
 
-  // loadHeader(doc.querySelector('header'));
-  // loadFooter(doc.querySelector('footer'));
-
-  loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   addFavIcon(`${window.hlx.codeBasePath}/styles/favicon.ico`);
-  sampleRUM('lazy');
-  sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
-  sampleRUM.observe(main.querySelectorAll('picture > img'));
-}
-
-function decoratePhoneLinks() {
-  ['tel', 'sms'].forEach((p) => {
-    document.querySelectorAll(`a[href*="/${p}/"]`).forEach(($a) => {
-      $a.href = `${p}:${$a.href.split(`/${p}/`)[1]}`;
-    });
-  });
+  loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
 }
 
 /**
- * loads everything that happens a lot later, without impacting
- * the user experience.
+ * Loads everything that happens a lot later,
+ * without impacting the user experience.
  */
 function loadDelayed() {
   // eslint-disable-next-line import/no-cycle
   window.setTimeout(() => import('./delayed.js'), 3000);
   // load anything that can be postponed to the latest here
-
-  decoratePhoneLinks();
 }
 
 async function loadPage() {
