@@ -1,9 +1,6 @@
 // eslint-disable-next-line import/no-cycle
-import { sampleRUM } from './lib-franklin.js';
 import { createTag } from './utils.js';
 
-// Core Web Vitals RUM collection
-sampleRUM('cwv');
 
 function loadScript(url, callback, type) {
   const $head = document.querySelector('head');
