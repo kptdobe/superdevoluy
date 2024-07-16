@@ -14,7 +14,7 @@
 
 import {
   readBlockConfig,
-} from '../../scripts/lib-franklin.js';
+} from '../../scripts/aem.js';
 
 import { createTag } from '../../scripts/utils.js';
 
